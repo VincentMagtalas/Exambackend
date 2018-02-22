@@ -7,12 +7,12 @@ class NoteSerializer(serializers.ModelSerializer):
     URL = serializers.HyperlinkedIdentityField(view_name='note_detail', format='html')
     class Meta:
         model = Note
-        fields = ('URL','FBID','NoteTitle','NoteContent','DateCreated')
+        fields = ('URL','FBID','NoteTitle','NoteContent','DateCreated','Status')
 
 class NoteDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
-        fields = ('FBID','NoteTitle','NoteContent','DateCreated')
+        fields = ('FBID','NoteTitle','NoteContent','DateCreated','Status')
 
 class FBUserSerializer(serializers.ModelSerializer):
     DetailURL = serializers.HyperlinkedIdentityField(view_name='fbuser_detail', format='html')
