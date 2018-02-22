@@ -16,28 +16,28 @@ def api_root(request, format=None):
     })
 
 class NoteList(generics.ListCreateAPIView):
-    queryset = Note.objects.all()
+    queryset = Note.objects.all().order_by('id')
     serializer_class = NoteSerializer
 
     def perform_create(self, serializer):
         serializer.save()
 
 class FBUserList(generics.ListCreateAPIView):
-    queryset = FBUser.objects.all()
+    queryset = FBUser.objects.all().order_by('id')
     serializer_class = FBUserSerializer
 
     def perform_create(self, serializer):
         serializer.save()
 
 class FBUserDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = FBUser.objects.all()
+    queryset = FBUser.objects.all().order_by('id')
     serializer_class = FBUserDetailsSerializer
 
 class NoteDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Note.objects.all()
+    queryset = Note.objects.all().order_by('id')
     serializer_class = NoteDetailSerializer
 
 class FBUserNoteDetail(generics.RetrieveAPIView):
-    queryset = FBUser.objects.all()
+    queryset = FBUser.objects.all().order_by('id')
     serializer_class = FBUserNoteDetailsSerializer
 
